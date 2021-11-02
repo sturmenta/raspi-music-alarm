@@ -1,8 +1,9 @@
 {
-  "name": "my-app",
+  "name": "raspi-music-alarm",
   "version": "0.2.0",
-  "author": "Your Name",
-  "description": "React-TypeScript-Electron sample with Create React App and Electron Builder",
+  "author": "sturmenta",
+  "description": "a minimal music alarm created with react & typescript for use with electron",
+  "repository": "https://github.com/sturmenta/raspi-music-alarm",
   "homepage": ".",
   "main": "build/electron/main.js",
   "private": true,
