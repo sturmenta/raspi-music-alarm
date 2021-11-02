@@ -457,7 +457,7 @@ duplexer3@^0.1.4:
   resolved "https://registry.yarnpkg.com/duplexer3/-/duplexer3-0.1.4.tgz#ee01dd1cac0ed3cbc7fdbea37dc0a8f1ce002ce2"
   integrity sha1-7gHdHKwO08vH/b6jfcCo8c4ALOI=
 
-electron@^15.2.0:
+electron@^15.3.0:
   version "15.3.0"
   resolved "https://registry.yarnpkg.com/electron/-/electron-15.3.0.tgz#f9803c5a05b2dac12efc6d4203492c7e204b4819"
   integrity sha512-YLzaKCFmSniNlz9+NUTNs7ssPyDc+bYOCYZ0b/D6DjVkOeIFz4SR8EYKqlOc8TcqlDNu18BbWqz6zbJPyAAURg==
