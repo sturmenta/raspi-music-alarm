@@ -5,6 +5,9 @@ import { css } from "@emotion/css";
 import dayjs from "dayjs";
 
 import "./App.css";
+import shuffleArray from "./shuffleArray";
+
+const stringSeparator = "##########";
 
 function App() {
   const [time, setTime] = useState("04:20");
@@ -28,7 +31,9 @@ function App() {
         await new Promise((res: any) => {
           const fl = new FileReader();
           fl.addEventListener("load", (loadEvent: any) => {
-            _songsPath.push(loadEvent.target.result);
+            _songsPath.push(
+              files[x].name + stringSeparator + loadEvent.target.result
+            );
             res();
           });
           fl.readAsDataURL(files[x]);
@@ -42,14 +47,15 @@ function App() {
   const playSongs = () => {
     const autoplay = (i: number, list: any) => {
       const sound = new Howl({
-        src: [list[i]],
+        src: [list[i].split(stringSeparator)[1]],
         preload: true,
         onend: () => autoplay(i + 1 === list.length ? 0 : i + 1, list),
       });
       sound.play();
     };
 
-    autoplay(0, songsPath);
+    const arrayShuffled = shuffleArray(songsPath);
+    autoplay(0, arrayShuffled);
   };
 
   const startAlarm = () => {
