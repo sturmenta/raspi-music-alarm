@@ -12,3 +12,14 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
+
+.item {
+  padding: 20px;
+  width: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: gray;
+  margin-bottom: 10px;
+}

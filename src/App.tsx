@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import { Howl } from "howler";
+import TimePicker from "react-time-picker";
+import { css } from "@emotion/css";
 
 import "./App.css";
 
 function App() {
+  const [time, setTime] = useState("04:20");
+
   const handleSongFiles = async (event: any) => {
     if (event.target.files.length !== 0) {
       const files = event.target.files;
@@ -28,6 +32,7 @@ function App() {
         });
         sound.play();
       };
+
       autoplay(0, songsPath);
     }
   };
@@ -35,12 +40,37 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <input
-          type="file"
-          onChange={handleSongFiles}
-          accept=".mp3, .wav, .flac"
-          multiple
-        />
+        <div className="item">
+          <div
+            className={css`
+              .react-time-picker {
+                .react-time-picker__wrapper {
+                  .react-time-picker__inputGroup {
+                    input,
+                    select {
+                      color: white;
+                    }
+                  }
+                }
+              }
+            `}
+          >
+            <TimePicker
+              onChange={setTime}
+              value={time}
+              clearIcon={null}
+              clockIcon={null}
+            />
+          </div>
+        </div>
+        <div className="item">
+          <input
+            type="file"
+            onChange={handleSongFiles}
+            accept=".mp3, .wav, .flac"
+            multiple
+          />
+        </div>
       </header>
     </div>
   );
