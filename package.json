@@ -1,12 +1,20 @@
 {
   "name": "raspi-music-alarm",
-  "version": "0.2.0",
-  "author": "sturmenta",
+  "version": "0.0.1",
+  "author": {
+    "email": "sturmenta@gmail,com",
+    "name": "Nicolas Sturm",
+    "url": "https://github.com/sturmenta"
+  },
   "description": "a minimal music alarm created with react & typescript for use with electron",
-  "repository": "https://github.com/sturmenta/raspi-music-alarm",
   "homepage": ".",
   "main": "build/electron/main.js",
   "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sturmenta/raspi-music-alarm.git"
+  },
+  "license": "MIT",
   "dependencies": {
     "@emotion/css": "^11.5.0",
     "@emotion/react": "^11.5.0",
@@ -31,18 +39,20 @@
     "dev": "yarn electron:dev",
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "eject": "react-scripts eject",
     "postinstall": "electron-builder install-app-deps",
     "electron:dev": "concurrently \"cross-env BROWSER=none yarn start\" \"wait-on http://localhost:3000 && tsc -p electron -w\" \"wait-on http://localhost:3000 && tsc -p electron && electron .\"",
-    "electron:build": "yarn build && tsc -p electron && electron-builder",
-    "eject": "react-scripts eject"
+    "electron:build": "yarn build && tsc -p electron && electron-builder --linux"
   },
   "build": {
-    "extends": null,
-    "files": [
-      "build/**/*"
-    ],
-    "directories": {
-      "buildResources": "assets"
+    "asar": true,
+    "appId": "sturm.dev.raspi-music-alarm",
+    "linux": {
+      "target": "deb",
+      "category": "Utility"
+    },
+    "extraMetadata": {
+      "main": "build/electron/main.js"
     }
   },
   "eslintConfig": {
