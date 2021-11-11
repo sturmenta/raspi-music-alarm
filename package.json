@@ -48,8 +48,12 @@
     "asar": true,
     "appId": "sturm.dev.raspi-music-alarm",
     "linux": {
-      "target": "deb",
-      "category": "Utility"
+      "target": {
+        "target": "appimage",
+        "arch": [
+          "armv7l"
+        ]
+      }
     },
     "extraMetadata": {
       "main": "build/electron/main.js"
